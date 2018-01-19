@@ -1,0 +1,26 @@
+{
+  "name": "pixels2points",
+  "version": "1.0.0",
+  "description": "Converts design pixels to display points",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "igorp",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ingvardm/pixels2points.git"
+  },
+  "keywords": [
+    "react-native",
+    "pixels",
+    "dp",
+    "pt",
+    "points"
+  ],
+  "bugs": {
+    "url": "https://github.com/ingvardm/pixels2points/issues"
+  },
+  "homepage": "https://github.com/ingvardm/pixels2points#readme"
+}
