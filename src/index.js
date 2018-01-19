@@ -51,11 +51,8 @@ exports.calculate = function(pixels = 0, {
     
     let dp = pixels / ratio
 
-    if(roundToNearestPoint)
-        dp = _roundToNearestPoint(dp)
-
-    if(middlewear)
-        dp = middlewear(dp)
+    if(roundToNearestPoint) dp = _roundToNearestPoint(dp)
+    if(middlewear) dp = middlewear(dp)
 
     return dp
 }
