@@ -5,7 +5,7 @@ const calcSize = pixels2points.calculate
 // configure device and design width in pixels
 pixels2points.configure({
     deviceWidth: 640,
-    designWidth: 750
+    designWidth: 750,
 })
 
 console.log(calcSize(200)) // 170.66666666666666
@@ -36,3 +36,18 @@ var buttonWidth = calcSize(200, {
 })
 
 console.log('responsive button width = ', buttonWidth) // 120
+
+// use chached values for better performance
+
+pixels2points.configure({
+    cache: true,
+    middlewear: null // Dont forget to reset previously configured parameters
+})
+
+var buttonWidthA = calcSize(200)
+
+console.log('200 isn\'cached, calculating...', buttonWidthA)
+
+var buttonWidthB = calcSize(200)
+
+console.log('200 IS cached, returning chached value', buttonWidthB)

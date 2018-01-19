@@ -76,6 +76,24 @@ console.log('responsive button width = ', buttonWidth)
 // responsive button width =  120
 ```
 
+**use chached values for better performance:**
+```javascript
+pixels2points.configure({
+    cache: true,
+    middlewear: null // Dont forget to reset previously configured parameters
+})
+
+var buttonWidthA = calcSize(200)
+
+console.log('200 isn\'cached, calculating...', buttonWidthA)
+// 200 isn'cached, calculating... 170.66666666666666
+
+var buttonWidthB = calcSize(200)
+
+console.log('200 IS cached, returning chached value', buttonWidthB)
+// 200 IS cached, returning chached value 170.66666666666666
+```
+
 Development
 ---
 
