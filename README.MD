@@ -2,6 +2,8 @@ Description
 ---
 Use this lib to create pixel pirfect designs in web or react-native/native-script projects
 
+_version 1.0.0_
+
 Instalation
 ---
 **Installing from git:**
@@ -12,10 +14,12 @@ yarn add git+https://git@github.com/ingvardm/pixels2points.git#master
 ```
 **Installing from npm:**
 ```bash
+npm i -S pixels2points
 
+yarn add pixels2points
 ```
 
-**Installing from bower:**
+**Installing with bower:**
 ```bash
 
 ```
@@ -78,5 +82,7 @@ Development
 Contributing
 ---
 To contribute to this project follow these [guidelines](https://git-scm.com/book/en/v2/GitHub-Contributing-to-a-Project)
+
+Development branch: "dev"
 
 
