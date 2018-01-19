@@ -1,4 +1,4 @@
-const pixels2points = require('./dist')
+const pixels2points = require('pixels2points')
 
 const calcSize = pixels2points.calculate
 

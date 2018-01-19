@@ -29,7 +29,7 @@ Usage
 
 **Require and configure:**
 ```javascript
-const pixels2points = require('node_modules/pixels2points')
+const pixels2points = require('pixels2points')
 
 const calcSize = pixels2points.calculate
 
