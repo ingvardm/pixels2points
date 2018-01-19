@@ -24,7 +24,6 @@ function _roundToNearestPoint(points){
 }
 
 function _getCachedValue(ratio, pixels){
-    console.log(_cachedValues, _cachedValues[ratio], _cachedValues[ratio[pixels]])
     return _cachedValues[ratio[pixels]]
 }
 
