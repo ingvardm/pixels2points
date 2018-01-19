@@ -10,7 +10,10 @@ var _config = {
     ratio: 1,
     roundToNearestPoint: false,
     middlewear: null,
+    cache: false,
 }
+
+var _cachedValues = {}
 
 function _roundToNearestPoint(points){
     let rounded = Math.floor(points)
@@ -20,11 +23,22 @@ function _roundToNearestPoint(points){
     else return rounded
 }
 
+function _getCachedValue(ratio, pixels){
+    console.log(_cachedValues, _cachedValues[ratio], _cachedValues[ratio[pixels]])
+    return _cachedValues[ratio[pixels]]
+}
+
+function _setCachedValue(ratio, pixels, value){
+    if(!_cachedValues[ratio]) _cachedValues[ratio] = {}
+    _cachedValues[ratio[pixels]] = value
+}
+
 exports.configure = function({
         designWidth = _config.designWidth,
         deviceWidth = _config.deviceWidth,
         roundToNearestPoint = _config.roundToNearestPoint,
-        middlewear = _config.middlewear
+        middlewear = _config.middlewear,
+        cache = _config.cache
 } = {}){
     let ratio = designWidth / deviceWidth
 
@@ -34,7 +48,8 @@ exports.configure = function({
         deviceWidth,
         roundToNearestPoint,
         ratio,
-        middlewear
+        middlewear,
+        cache
     }
 }
 
@@ -44,12 +59,14 @@ exports.calculate = function(pixels = 0, {
     designWidth = _config.designWidth,
     deviceWidth = _config.deviceWidth
 } = {}){
-    let { ratio } = _config
+    let { ratio, cache } = _config
     if(!designWidth) throw new Error('Design width is not set')
     if(!deviceWidth) throw new Error('Dvice width is not set')
     if(!pixels) return 0
     
-    let dp = pixels / ratio
+    let dp = _getCachedValue(ratio, pixels) || pixels / ratio
+
+    if(cache) _setCachedValue(ratio, pixels, dp)
 
     if(roundToNearestPoint) dp = _roundToNearestPoint(dp)
     if(middlewear) dp = middlewear(dp)
