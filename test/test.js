@@ -11,7 +11,7 @@ describe('configure', function () {
             designWidth: 1,
             deviceWidth: 1,
             roundToNearestPoint: true,
-            middlewear: () => { },
+            middleware: () => { },
             cache: true
         }
         pixels2points.configure({ ...options })
@@ -30,7 +30,7 @@ describe('calculate', function () {
         designWidth: 720,
         deviceWidth: 530,
         roundToNearestPoint: false,
-        middlewear: null,
+        middleware: null,
         cache: false
     }
 
@@ -43,20 +43,20 @@ describe('calculate', function () {
             designWidth: 0,
             deviceWidth: 0,
             roundToNearestPoint: false,
-            middlewear: null,
+            middleware: null,
             cache: false
         })
         assert.throws(calculate.bind(null, 1))
     })
 
-    it('should return ratio after configuration', function () {
-        configure({ ...options })
-        assert.equal(calculate(options.designWidth / options.deviceWidth), 1)
-    })
-
     it('should return number', function () {
         configure({ ...options })
         assert.ok(typeof calculate(100) === 'number')
+    })
+
+    it('should return correct ratio after configuration', function () {
+        configure({ ...options })
+        assert.equal(calculate(options.designWidth / options.deviceWidth), 1)
     })
 
     it('should return integer when rounding', function () {
