@@ -4,7 +4,7 @@
   "description": "Converts design pixels to display points",
   "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "author": "igorp",
   "license": "LicenseRef-LICENSE",
@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/ingvardm/pixels2points/issues"
   },
-  "homepage": "https://github.com/ingvardm/pixels2points#readme"
+  "homepage": "https://github.com/ingvardm/pixels2points#readme",
+  "devDependencies": {
+    "mocha": "^5.0.0"
+  }
 }
