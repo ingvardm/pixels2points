@@ -21,10 +21,10 @@ const myRoundingFunction = function(points){
     return Math.floor(points)
 }
 
-// configure pixels2points to use custom middlewear function
+// configure pixels2points to use custom middleware function
 pixels2points.configure({
     roundToNearestPoint: false,
-    middlewear: myRoundingFunction
+    middleware: myRoundingFunction
 })
 
 console.log('rounded down', calcSize(200)) // 170
@@ -32,7 +32,7 @@ console.log('rounded down', calcSize(200)) // 170
 // run with parameters
 var buttonWidth = calcSize(200, {
     deviceWidth: 720,
-    middlewear: points => points > 150 ? 120 : 100
+    middleware: points => points > 150 ? 120 : 100
 })
 
 console.log('responsive button width = ', buttonWidth) // 120
@@ -41,7 +41,7 @@ console.log('responsive button width = ', buttonWidth) // 120
 
 pixels2points.configure({
     cache: true,
-    middlewear: null // Dont forget to reset previously configured parameters
+    middleware: null // Dont forget to reset previously configured parameters
 })
 
 var buttonWidthA = calcSize(200)

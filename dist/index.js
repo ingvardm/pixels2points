@@ -9,7 +9,7 @@ var _config = {
     deviceWidth: 0,
     ratio: 1,
     roundToNearestPoint: false,
-    middlewear: null,
+    middleware: null,
     cache: false,
 }
 
@@ -24,7 +24,6 @@ function _roundToNearestPoint(points){
 }
 
 function _getCachedValue(ratio, pixels){
-    console.log(_cachedValues, _cachedValues[ratio], _cachedValues[ratio[pixels]])
     return _cachedValues[ratio[pixels]]
 }
 
@@ -37,7 +36,7 @@ exports.configure = function({
         designWidth = _config.designWidth,
         deviceWidth = _config.deviceWidth,
         roundToNearestPoint = _config.roundToNearestPoint,
-        middlewear = _config.middlewear,
+        middleware = _config.middleware,
         cache = _config.cache
 } = {}){
     let ratio = designWidth / deviceWidth
@@ -48,14 +47,14 @@ exports.configure = function({
         deviceWidth,
         roundToNearestPoint,
         ratio,
-        middlewear,
+        middleware,
         cache
     }
 }
 
 exports.calculate = function(pixels = 0, {
     roundToNearestPoint = _config.roundToNearestPoint,
-    middlewear = _config.middlewear,
+    middleware = _config.middleware,
     designWidth = _config.designWidth,
     deviceWidth = _config.deviceWidth
 } = {}){
@@ -69,7 +68,7 @@ exports.calculate = function(pixels = 0, {
     if(cache) _setCachedValue(ratio, pixels, dp)
 
     if(roundToNearestPoint) dp = _roundToNearestPoint(dp)
-    if(middlewear) dp = middlewear(dp)
+    if(middleware) dp = middleware(dp)
 
     return dp
 }
