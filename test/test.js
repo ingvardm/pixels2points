@@ -1,5 +1,5 @@
 const assert = require('assert')
-const pixels2points = require('../src')
+const pixels2points = require('../dist')
 
 describe('configure', function () {
     it('should be exported', function () {
