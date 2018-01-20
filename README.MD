@@ -96,6 +96,22 @@ console.log('200 IS cached, returning chached value', buttonWidthB)
 
 Development
 ---
+**install npm packages**
+```bash
+npm i
+
+yarn
+```
+
+**test**
+```bash
+npm test
+```
+
+**build**
+```bash
+npm run build
+```
 
 Contributing
 ---

@@ -1,5 +1,5 @@
 const assert = require('assert')
-const pixels2points = require('../src')
+const pixels2points = require('../dist')
 
 describe('configure', function () {
     it('should be exported', function () {
@@ -49,18 +49,25 @@ describe('calculate', function () {
         assert.throws(calculate.bind(null, 1))
     })
 
-    it('should return ratio after configuration', function () {
-        configure({ ...options })
-        assert.equal(calculate(options.designWidth / options.deviceWidth), 1)
-    })
-
     it('should return number', function () {
         configure({ ...options })
         assert.ok(typeof calculate(100) === 'number')
     })
 
+    it('should return correct ratio after configuration', function () {
+        configure({ ...options })
+        assert.equal(calculate(options.designWidth / options.deviceWidth), 1)
+    })
+
     it('should return integer when rounding', function () {
         configure({ ...options, roundToNearestPoint: true })
         assert.ok(Number.isInteger(calculate(1)))
+    })
+
+    it('should use middleware', function(){
+        const customValue = 10
+        const middleware = v => customValue
+        configure({ ...options, middleware })
+        assert.equal(calculate(customValue), customValue)
     })
 })
