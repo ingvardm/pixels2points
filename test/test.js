@@ -11,7 +11,7 @@ describe('configure', function () {
             designWidth: 1,
             deviceWidth: 1,
             roundToNearestPoint: true,
-            middleware: () => { },
+            middlewear: () => { },
             cache: true
         }
         pixels2points.configure({ ...options })
@@ -30,7 +30,7 @@ describe('calculate', function () {
         designWidth: 720,
         deviceWidth: 530,
         roundToNearestPoint: false,
-        middleware: null,
+        middlewear: null,
         cache: false
     }
 
@@ -43,7 +43,7 @@ describe('calculate', function () {
             designWidth: 0,
             deviceWidth: 0,
             roundToNearestPoint: false,
-            middleware: null,
+            middlewear: null,
             cache: false
         })
         assert.throws(calculate.bind(null, 1))
@@ -62,5 +62,12 @@ describe('calculate', function () {
     it('should return integer when rounding', function () {
         configure({ ...options, roundToNearestPoint: true })
         assert.ok(Number.isInteger(calculate(1)))
+    })
+
+    it('should use middleware', function(){
+        const customValue = 10
+        const middleware = v => customValue
+        configure({ ...options, middleware })
+        assert.equal(calculate(customValue), customValue)
     })
 })
