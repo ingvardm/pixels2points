@@ -1,9 +1,5 @@
 'use strict'
 
-/**
- * 
- */
-
 var _config = {
     designWidth: 0,
     deviceWidth: 0,
