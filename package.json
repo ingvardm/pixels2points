@@ -24,6 +24,9 @@
   },
   "homepage": "https://github.com/ingvardm/pixels2points#readme",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "gulp": "^3.9.1",
     "mocha": "^5.0.0"
   }
 }
