@@ -4,8 +4,8 @@
   "description": "Converts design pixels to display points",
   "main": "dist/index.js",
   "scripts": {
-    "test": "mocha",
-    "build": "babel src --presets env --out-dir dist && mocha"
+    "test": "mocha --check-leaks",
+    "build": "babel src --presets env --out-dir dist && npm run test"
   },
   "author": "igorp",
   "license": "LicenseRef-LICENSE",
